@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -10,6 +12,8 @@ public class Main {
         // Set (LinkedList, LinkedHashSet, LinkedList for queue , LinkedList for Deque and LinkedHashMap and Tree map)
 
         //** LIST ** \\
-        ExmpleOfLst.display();
+        //ExmpleOfLst.display();
+        //ExmpleArray.display();
+        ExmplHashset.display(); // group of unique data
     }
 }
