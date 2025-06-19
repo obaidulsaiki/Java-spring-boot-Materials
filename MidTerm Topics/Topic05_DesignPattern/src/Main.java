@@ -9,10 +9,13 @@ public class Main {
         Department cse = new Department(s1);
         cse.getDepartment();
         //--------factory design pattern-------
-        Phone mobilePhone = new Phone("Robi");
-        SimFactory sf = new SimFactory();
-        Sim sim = sf.getSim(mobilePhone.SimName);
-        System.out.println(sim.brandName());
+        SimFactory simFactory = new SimFactory();
+        Sim sim = simFactory.getSim("GP");
+        Phone phone = new Phone(sim); // DI through constructor
+        phone.makeCall();
+        sim = simFactory.getSim("ROBI");
+        phone = new Phone(sim);
+        phone.makeCall();
 
 
 
