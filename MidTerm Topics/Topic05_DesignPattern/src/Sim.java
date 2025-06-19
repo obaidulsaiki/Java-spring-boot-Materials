@@ -1,39 +1,37 @@
 public interface Sim {
-    String brandName();
+    void call();
 }
-class Robi implements Sim{
-
-    @Override
-    public String brandName() {
-        return "Robi";
+class GrameenPhone implements Sim {
+    public void call() {
+        System.out.println("Calling using GrameenPhone SIM...");
     }
 }
-class GrameenPhone implements Sim{
-
-    @Override
-    public String brandName() {
-        return "GP";
+class Robi implements Sim {
+    public void call() {
+        System.out.println("Calling using Robi SIM...");
     }
 }
-class Phone{
-    String SimName;
-    public Phone(String SimName){
-        this.SimName = SimName;
-    }
-}
-
-class SimFactory{
-    public Sim getSim(String simType){
-        // logic that differentiate design pattern
-        if (simType.equals("Robi")){
-            return new Robi();
-        }
-        else if(simType.equals("GP"))
-        {
+//Factory Design pattern implementation:
+class SimFactory {
+    public Sim getSim(String simType) {
+        if (simType.equals("GP")) {
             return new GrameenPhone();
+        } else if (simType.equals("ROBI")) {
+            return new Robi();
         }
         else {
             return null;
         }
+    }
+}
+class Phone {
+    private Sim sim;
+    // Example of Dependencies Injection
+    public Phone(Sim sim) {
+        this.sim = sim;
+    }
+
+    public void makeCall() {
+        sim.call();
     }
 }
